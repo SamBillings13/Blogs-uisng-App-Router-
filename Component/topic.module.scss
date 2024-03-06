@@ -1,0 +1,25 @@
+.main {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  //   border: 0.5px solid rgb(180, 179, 179);
+  padding: 10px;
+  box-shadow: 0 2px 4px rgb(5, 49, 49);
+  margin-bottom: 5px;
+  h3 {
+    color: rgb(5, 49, 49);
+    text-transform: capitalize;
+    font-size: 1.5rem;
+  }
+  .Btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .Btns a {
+    margin-top: 2px;
+    color: black;
+  }
+}
