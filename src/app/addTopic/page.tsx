@@ -3,11 +3,13 @@
 import { useState } from "react";
 import style from "@/styles/addTopic.module.scss";
 import style2 from "@/styles/button.module.scss";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 export default function AddTopic() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -23,6 +25,8 @@ export default function AddTopic() {
       if (res.status === 201) {
         alert("Data inserted successfully");
         console.log(res);
+        router.push("/");
+        router.refresh();
       } else {
         throw new Error("Error inserting data");
       }

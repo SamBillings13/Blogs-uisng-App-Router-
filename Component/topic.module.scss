@@ -1,25 +1,43 @@
 .main {
-  width: 80vw;
+  width: 40vw;
   display: flex;
   justify-content: space-between;
   margin: 10px auto;
-  //   border: 0.5px solid rgb(180, 179, 179);
+  flex-wrap: wrap;
   padding: 10px;
   box-shadow: 0 2px 4px rgb(5, 49, 49);
   margin-bottom: 5px;
+  border-radius: 15px;
+  a {
+    text-decoration: none;
+    & :hover {
+      color: rgb(0, 0, 0);
+    }
+  }
   h3 {
     color: rgb(5, 49, 49);
     text-transform: capitalize;
     font-size: 1.5rem;
   }
+
+  p {
+    color: black;
+  }
   .Btns {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
+  }
+  DeleteBtn:hover {
+    cursor: pointer;
+    color: rgb(241, 164, 164);
   }
   .Btns a {
     margin-top: 2px;
     color: black;
   }
+}
+.lnk {
+  text-decoration: none;
 }

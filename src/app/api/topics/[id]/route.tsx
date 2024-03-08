@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import dbConnection from "../../../../../libs/mongoDb";
 import Topic from "../../../../../model/topic";
 
+
+
 export async function PUT(request: any, { params }: any) {
   const { id } = params;
   const { newTitle: title, newDescription: description } = await request.json();

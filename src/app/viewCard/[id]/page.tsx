@@ -1,5 +1,4 @@
-import React from "react";
-import { EditTopic } from "../../../../Component/EditTopic";
+import style from "@/styles/card.module.scss";
 
 const getTopicById = async (id: any) => {
   try {
@@ -16,14 +15,29 @@ const getTopicById = async (id: any) => {
     console.log(error);
   }
 };
-export default async function EditPage({ params }: any) {
+
+const page = async ({ params }: any) => {
   const { id } = params;
   const { topic } = await getTopicById(id);
   const { title, description } = topic;
-
+  console.log(id, "hjghjgj");
   return (
     <div>
-      <EditTopic id={id} title={title} description={description} />
+      <div>
+        {
+          <div className={style.main} key={id}>
+            <div>
+             
+                <h3>{title}</h3>
+              
+
+              <p>{description}</p>
+            </div>
+       
+          </div>
+        }
+      </div>
     </div>
   );
-}
+};
+export default page;

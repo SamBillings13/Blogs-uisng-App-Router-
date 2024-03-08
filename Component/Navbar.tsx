@@ -10,7 +10,7 @@ export const Navbar = () => {
     },
     {
       id: 2,
-      link: "AddTopic",
+      link: "Add Topic",
       href: "/addTopic",
     },
   ];
