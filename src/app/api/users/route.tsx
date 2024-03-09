@@ -1,32 +1,32 @@
-// pages/api/signup.js
-
 import dbConnection from "../../../../libs/mongoDb";
 import User from "../../../../model/user";
-
-export default async function handler(req: any, res: any) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method Not Allowed" });
-  }
-
-  const { name, email, password } = req.body;
-
+import bcrypt from "bcryptjs";
+export async function POST(req: any, res: any) {
   try {
-    // Connect to MongoDB
     await dbConnection();
-
-    // Check if the user already exists
-    const existingUser = await User.findOne({ email });
+    const body = await req.json();
+    console.log(body);
+    const existingUser = await User.findOne({ email: body.email });
+    console.log(existingUser);
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      return new Response(JSON.stringify({ message: "User already exists" }), {
+        status: 400,
+      });
     }
-
-    // Create a new user
-    const newUser = new User({ name, email, password });
+    const hashedPassword = await bcrypt.hash(body.password, 10);
+    const newUser = new User({
+      name: body.name,
+      email: body.email,
+      password: hashedPassword,
+    });
     await newUser.save();
 
-    return res.status(201).json({ message: "User created successfully" });
+    return new Response(
+      JSON.stringify({ message: "User created successfully" }),
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Error creating user:", error);
-    return res.status(500).json({ message: "Internal Server Error" });
+    return new Response(JSON.stringify({ message: "fail" }), { status: 500 });
   }
 }

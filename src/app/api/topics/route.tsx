@@ -6,7 +6,6 @@ import Topic from "../../../../model/topic";
   const { title, description } = await request.json();
   await dbConnection();
   await Topic.create({ title, description });
-
   return NextResponse.json({ message: "Topic created" }, { status: 201 });
 }
 

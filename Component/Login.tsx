@@ -1,13 +1,55 @@
-import React from "react";
-import style from "../Component/login.module.css";
+"use client";
+
+import Link from "next/link";
+import style from "../Component/login.module.scss";
+import { useState } from "react";
 
 export const Login = () => {
-  return (<div>
+  interface login {
+    email: string;
+    password: string;
+  }
+  const initialLogin: login = {
+    email: "",
+    password: "",
+  };
+  const [login, setLogin] = useState<login>(initialLogin);
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setLogin({
+      ...login,
+      [name]: value,
+    });
+  };
 
-<form >
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    <input type="text" name="" id="" />
-</form>
+  return (
+    <div className={style.main}>
+      <h3>login</h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="email"
+          onChange={handleChange}
+          type="text"
+          placeholder="email"
+        />
+        <input
+          name="password"
+          onChange={handleChange}
+          type="password"
+          placeholder="password"
+        />
+        <button type="submit">Login</button>
+      </form>
 
-  </div>);
+      <Link href={"/signup"}> Signup</Link>
+    </div>
+  );
 };

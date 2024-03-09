@@ -1,11 +1,10 @@
-import React from "react";
 
-import { TopicList } from "../../../Component/TopicList";
+import { Signup } from "../../../Component/Signup";
 
 export default function page() {
   return (
     <div>
-      <TopicList />
+      <Signup />
     </div>
   );
 }

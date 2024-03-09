@@ -1,0 +1,42 @@
+.main {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h3 {
+    color: rgb(5, 49, 49);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid;
+      padding: 5px;
+      margin-bottom: 15px;
+    }
+    &:focus {
+      border: none;
+    }
+    button {
+      background: rgb(5, 49, 49);
+      padding: 8px;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      &:hover {
+        cursor: pointer;
+        background: rgb(0, 87, 87);
+        color: black;
+      }
+    }
+  }
+}
